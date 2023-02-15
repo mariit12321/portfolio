@@ -570,6 +570,9 @@ img {
 .portfolio-item:nth-child(7){
   animation-delay: 0.75s;
 }
+.portfolio-item:nth-child(9){
+  animation-delay: 1s;
+}
 
 
 .portfolio-item img{
