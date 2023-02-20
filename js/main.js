@@ -29,17 +29,15 @@ $('#js-target').t({
 
 // スキルバーのアニメーション
 let skillbar = document.querySelectorAll('.skill-bar');
-skillbar.forEach(function(fadeIn) {
-  let windowHeight = window.innerHeight;
-  
-  window.addEventListener('scroll', function() {
-    let offset = fadeIn.getBoundingClientRect().top;
-    let scroll = window.scrollY;
-    
-    if(scroll > offset - windowHeight + 500){
-      fadeIn.classList.add('is-scrollIn');
+window.addEventListener('scroll', function () {
+  var scroll = window.scrollY;
+  var windowHeight = window.innerHeight;
+  for (let item of skillbar) {
+    var targetPos = item.getBoundingClientRect().top + scroll;
+    if (scroll > targetPos - windowHeight) { 
+      item.classList.add('is-scrollIn');
     }
-  })
+  }
 });
 
 // メニューバーの固定
@@ -123,17 +121,15 @@ window.onclick = function (event) {
 
 // セクションタイトルのアニメーション
 let title = document.querySelectorAll('.title-span');
-title.forEach(function(gradation) {
-  let windowHeight = window.innerHeight;
-  
-  window.addEventListener('scroll', function() {
-    let offset = gradation.getBoundingClientRect().top;
-    let scroll = window.scrollY;
-    
-    if(scroll > offset - windowHeight + 500){
-      gradation.classList.add('is-scrollIn');
+window.addEventListener('scroll', function () {
+  var scroll = window.scrollY;
+  var windowHeight = window.innerHeight;
+  for (let item of title) {
+    var targetPos = item.getBoundingClientRect().top + scroll;
+    if (scroll > targetPos - windowHeight) { 
+      item.classList.add('is-scrollIn');
     }
-  })
+  }
 });
 
 // サービスのアニメーション
