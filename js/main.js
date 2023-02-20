@@ -88,17 +88,15 @@ document.querySelectorAll('.hamburger-nav a').forEach(function(link){
 
 // ポートフォリオのアニメーション
 let portfolio = document.querySelectorAll('.portfolio-item');
-portfolio.forEach(function(portfolioItem) {
-  let windowHeight = window.innerHeight;
-  
-  window.addEventListener('scroll', function() {
-    let offset = portfolioItem.getBoundingClientRect().top;
-    let scroll = window.scrollY;
-    
-    if(scroll > offset - windowHeight + 1000){
-      portfolioItem.classList.add('is-scrollIn');
+window.addEventListener('scroll', function () {
+  var scroll = window.scrollY;
+  var windowHeight = window.innerHeight;
+  for (let item of portfolio) {
+    var targetPos = item.getBoundingClientRect().top + scroll;
+    if (scroll > targetPos - windowHeight) { 
+      item.classList.add('is-scrollIn');
     }
-  })
+  }
 });
 
 // モーダル
